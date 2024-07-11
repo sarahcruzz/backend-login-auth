@@ -6,6 +6,7 @@ import com.sarah.login_auth_api.dto.RegisterRequestDTO;
 import com.sarah.login_auth_api.dto.ResponseDTO;
 import com.sarah.login_auth_api.infra.security.TokenService;
 import com.sarah.login_auth_api.repositories.UserRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +20,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class AuthController {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
